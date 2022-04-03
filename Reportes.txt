@@ -1,0 +1,23 @@
+/*	
+		Olga Hinestroza
+		Carné 1804002031
+*/
+
+/*
+		TOP 10
+*/
+
+  SELECT id_modelo count(id_modelo) AS Total FROM tbl_detalle_bitacora group by id_modelo order by Total desc
+
+/*
+		TIPOS Y MODELOS DE VEHÍCULO
+*/
+
+  select tbl_detalle_bitacora.id_tipo,
+	 tbl_tipo_vehiculo.descripcion AS tipo_vehiculo,
+	 tbl_detalle_bitacora.id_modelo,
+	 tbl_modelo.modelo
+	 from tbl_detalle_bitacora 
+  join tbl_tipo_vehiculo on tbl_tipo_vehiculo.id_tipo = tbl_detalle_bitacora.id_tipo
+  join tbl_modelo on tbl_modelo.id_modelo = tbl_detalle_bitacora.id_modelo
+  order by id_tipo asc
